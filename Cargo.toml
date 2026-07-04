@@ -1,0 +1,22 @@
+[workspace]
+resolver = "2"
+members = ["sandforge-core", "fuzz"]
+
+[workspace.package]
+version = "0.2.0"
+edition = "2021"
+rust-version = "1.74"
+license = "MIT OR Apache-2.0"
+authors = ["Sandforge Contributors"]
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 1
+panic = "abort"
+
+[profile.fuzz]
+inherits = "release"
+debug = true
+debug-assertions = true
+overflow-checks = true

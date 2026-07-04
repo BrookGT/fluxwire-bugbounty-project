@@ -1,0 +1,14 @@
+language: rust
+sanitizers:
+  - address
+fuzzing_engines:
+  - libfuzzer
+fuzz_targets:
+  - elf_fuzzer
+  - pe_fuzzer
+  - der_fuzzer
+  - wasm_fuzzer
+  - manifest_fuzzer
+  - archive_fuzzer
+  - journal_fuzzer
+  - cbor_fuzzer

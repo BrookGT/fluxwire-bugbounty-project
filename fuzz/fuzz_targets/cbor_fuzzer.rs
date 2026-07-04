@@ -1,0 +1,3 @@
+#![no_main]
+use libfuzzer_sys::fuzz_target;
+fuzz_target!(|data: &[u8]| { let _ = sandforge_core::parse_and_normalize(data); });

@@ -1,0 +1,63 @@
+[package]
+name = "sandforge-fuzz"
+version.workspace = true
+edition.workspace = true
+publish = false
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+sandforge-core = { path = "../sandforge-core" }
+libfuzzer-sys = { version = "0.4", optional = true }
+
+[features]
+libfuzzer = ["dep:libfuzzer-sys"]
+
+[[bin]]
+name = "elf_fuzzer"
+path = "fuzz_targets/elf_fuzzer.rs"
+test = false
+required-features = ["libfuzzer"]
+
+[[bin]]
+name = "pe_fuzzer"
+path = "fuzz_targets/pe_fuzzer.rs"
+test = false
+required-features = ["libfuzzer"]
+
+[[bin]]
+name = "der_fuzzer"
+path = "fuzz_targets/der_fuzzer.rs"
+test = false
+required-features = ["libfuzzer"]
+
+[[bin]]
+name = "wasm_fuzzer"
+path = "fuzz_targets/wasm_fuzzer.rs"
+test = false
+required-features = ["libfuzzer"]
+
+[[bin]]
+name = "manifest_fuzzer"
+path = "fuzz_targets/manifest_fuzzer.rs"
+test = false
+required-features = ["libfuzzer"]
+
+[[bin]]
+name = "archive_fuzzer"
+path = "fuzz_targets/archive_fuzzer.rs"
+test = false
+required-features = ["libfuzzer"]
+
+[[bin]]
+name = "journal_fuzzer"
+path = "fuzz_targets/journal_fuzzer.rs"
+test = false
+required-features = ["libfuzzer"]
+
+[[bin]]
+name = "cbor_fuzzer"
+path = "fuzz_targets/cbor_fuzzer.rs"
+test = false
+required-features = ["libfuzzer"]
